@@ -9,13 +9,15 @@
         android:id="@+id/body_ads"
 
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="228dp"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
 
         app:layout_constraintTop_toTopOf="parent"
 
-        app:spanCount="1" />
+        app:spanCount="1"
+        tools:ignore="SpeakableTextPresentCheck"
+        tools:listitem="@layout/home_ads_block_element" />
 
     <Space
         android:id="@+id/space_btw_ads_menu"

@@ -15,24 +15,15 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fcv_home, HomeFragment())
-            .commit()
 
-        binding.btNavBar.setOnItemSelectedListener {
-            BottomMenu
-                .from(it.title.toString().uppercase())
-                .changeFragment(supportFragmentManager)
 
-            true
-        }
     }
 
     enum class BottomMenu() {
         HOME {
             override fun changeFragment(supportFragmentManager: FragmentManager) {
                 supportFragmentManager.beginTransaction()
-                    .replace(R.id.fcv_home, HomeFragment())
+                    //.replace(R.id.fcv_home, HomeFragment())
                     .commit()
             }
         },
