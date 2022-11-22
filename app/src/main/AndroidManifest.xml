@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SoptMon"
         tools:targetApi="31">
+
         <activity
             android:name="com.sopt.soptmon.daehwan.HomeActivity"
             android:exported="true">
@@ -25,5 +26,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
     </application>
 </manifest>
