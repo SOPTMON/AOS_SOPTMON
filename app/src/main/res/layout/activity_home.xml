@@ -1,10 +1,214 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".daehwan.HomeActivity">
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/top_nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ScrollView
+        android:id="@+id/sv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        android:background="@color/main_background"
+
+        app:layout_constraintBottom_toTopOf="@id/bt_nav_bar"
+        app:layout_constraintTop_toBottomOf="@id/top_nav_bar">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/body_ads"
+
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+                app:layout_constraintTop_toTopOf="parent"
+
+                app:spanCount="1" />
+
+            <Space
+                android:id="@+id/space_btw_ads_menu"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+
+                app:layout_constraintTop_toBottomOf="@id/body_ads" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/body_menu"
+
+                android:layout_width="match_parent"
+                android:layout_height="228dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+
+                app:layout_constraintTop_toBottomOf="@id/space_btw_ads_menu"
+                app:spanCount="2"
+
+                tools:listitem=""
+
+                />
+
+            <Space
+                android:id="@+id/space_btw_menu_suggest"
+
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+
+                app:layout_constraintTop_toBottomOf="@id/body_menu" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/tx_block_suggest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:background="@color/white"
+
+                app:layout_constraintTop_toBottomOf="@id/space_btw_menu_suggest">
+
+                <TextView
+                    android:id="@+id/tx_suggest_items"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="271dp"
+                    android:lineHeight="18sp"
+                    android:paddingTop="30dp"
+                    android:paddingBottom="30dp"
+                    android:text="맞춤 상품 추천"
+
+                    android:textFontWeight="600"
+                    android:textSize="18sp"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <ImageView
+                    android:id="@+id/img_suggest_items_right_view_more"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+
+                    android:layout_marginStart="241dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="23dp"
+                    android:src="@drawable/body_right_view_more"
+
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    app:layout_constraintStart_toEndOf="@id/tx_suggest_items"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/body_suggest_items"
+
+                android:layout_width="match_parent"
+                android:layout_height="228dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+                app:layout_constraintTop_toBottomOf="@id/tx_block_suggest"
+
+                tools:listitem="" />
+
+            <Space
+                android:id="@+id/space_btw_suggest_tv_on"
+
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+
+                app:layout_constraintTop_toBottomOf="@id/body_suggest_items" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/tx_block_tv_on"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:background="@color/white"
+
+                app:layout_constraintTop_toBottomOf="@id/space_btw_suggest_tv_on">
+
+                <TextView
+                    android:id="@+id/tx_tv_on"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="271dp"
+                    android:lineHeight="18sp"
+                    android:paddingTop="30dp"
+                    android:paddingBottom="30dp"
+                    android:text="TVON LIVE"
+
+                    android:textFontWeight="600"
+                    android:textSize="18sp"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <ImageView
+                    android:id="@+id/img_tv_on_right_view_more"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+
+                    android:layout_marginStart="241dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="23dp"
+                    android:src="@drawable/body_right_view_more"
+
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    app:layout_constraintStart_toEndOf="@id/tx_tv_on"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="122dp"
+
+                android:orientation="horizontal"
+
+                app:layout_constraintTop_toBottomOf="@id/tx_block_tv_on" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bt_nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
