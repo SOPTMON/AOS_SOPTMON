@@ -131,7 +131,8 @@
 
                 app:layout_constraintTop_toBottomOf="@id/block_suggestion"
 
-                tools:listitem="@layout/suggestion_block_element" />
+                tools:listitem="@layout/suggestion_block_element"
+                />
 
             <Space
                 android:id="@+id/space_btw_suggestion_tv_on"
@@ -197,7 +198,9 @@
 
                 android:orientation="horizontal"
 
-                app:layout_constraintTop_toBottomOf="@id/block_tvon" />
+                app:layout_constraintTop_toBottomOf="@id/block_tvon"
+
+                tools:listitem="@layout/"/>
         </LinearLayout>
 
     </ScrollView>

@@ -20,6 +20,8 @@ class HomeBodySuggestionBlockAdaptor(
         private val binding: SuggestionBlockElementBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: SuggestionElementNameOnly) {
+            binding.imgSuggestion.clipToOutline = true
+
             Glide.with(binding.root)
                 .load(data.imageUrl)
                 .centerCrop()

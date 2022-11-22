@@ -3,7 +3,6 @@ package com.sopt.soptmon.daehwan
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
-import com.sopt.soptmon.R
 import com.sopt.soptmon.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
@@ -14,9 +13,6 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
-
     }
 
     enum class BottomMenu() {
