@@ -4,13 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.fragment.app.viewModels
 import com.sopt.soptmon.ImageType
 import com.sopt.soptmon.R
 import com.sopt.soptmon.databinding.HomeFrameBinding
 import com.sopt.soptmon.template.FragmentTemplate
 
 class HomeFragment : FragmentTemplate<HomeFrameBinding>() {
+
+    private val homeSuggestionViewModel by viewModels<HomeViewModel>()
+
     private val adsList = listOf(
         AdsElement(
             imageNo = R.drawable.home_img_ad1,
@@ -96,14 +99,35 @@ class HomeFragment : FragmentTemplate<HomeFrameBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Ads block
         val homeBodyAdsBlockAdapter = HomeBodyAdsBlockAdapter(requireContext())
         homeBodyAdsBlockAdapter.setList(adsList)
-
         getBinding().bodyAds.adapter = homeBodyAdsBlockAdapter
 
+        // Menu Block
         val homeBodyMenuBlockAdapter = HomeBodyMenuBlockAdapter(requireContext())
         homeBodyMenuBlockAdapter.setList(homeMenuList)
         getBinding().bodyMenu.adapter = homeBodyMenuBlockAdapter
+
+        // suggestion block
+        val homeSuggestionBlockAdapter = HomeBodySuggestionBlockAdaptor(requireContext())
+        homeSuggestionViewModel.getSuggestions()
+
+        homeSuggestionViewModel.result.observe(viewLifecycleOwner) {
+            if (it.isSuccessful()) {
+                homeSuggestionBlockAdapter.setList(
+                    SuggestionElementNameOnly.from(
+                        it.data
+                    )
+                )
+                getBinding().suggestionItemBlock.adapter = homeSuggestionBlockAdapter
+            }
+        }
+
+
+
+
+        
     }
 
     override fun getBinding(): HomeFrameBinding = requireNotNull(_binding) as HomeFrameBinding

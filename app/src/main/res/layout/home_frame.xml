@@ -5,78 +5,202 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/body_ads"
 
-        android:layout_width="match_parent"
-        android:layout_height="228dp"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-
-        app:layout_constraintTop_toTopOf="parent"
-
-        app:spanCount="1"
-        tools:ignore="SpeakableTextPresentCheck"
-        tools:listitem="@layout/home_ads_block_element" />
-
-    <Space
-        android:id="@+id/space_btw_ads_menu"
-        android:layout_width="match_parent"
-        android:layout_height="8dp"
-
-        app:layout_constraintTop_toBottomOf="@id/body_ads" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/body_menu"
-
-        android:layout_marginHorizontal="10dp"
-        android:paddingHorizontal="40dp"
-
-        android:layout_width="match_parent"
-        android:layout_height="228dp"
-        android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-
-        app:layout_constraintTop_toBottomOf="@id/space_btw_ads_menu"
-        app:spanCount="5"
-
-        tools:listitem="@layout/home_menu_block_element"
-
-        />
-
-    <Space
-        android:id="@+id/space_btw_menu_suggestion"
-
-        android:layout_width="match_parent"
-        android:layout_height="8dp"
-
-        app:layout_constraintTop_toBottomOf="@id/body_menu" />
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/block_suggestion"
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/space_btw_menu_suggestion"
-
-        tools:layout="@layout/home_suggestion_block" />
-
-    <Space
-        android:id="@+id/space_btw_suggestion_tv_on"
-
-        android:layout_width="match_parent"
-        android:layout_height="8dp"
-
-        app:layout_constraintTop_toBottomOf="@id/block_suggestion" />
-
-
-    <androidx.fragment.app.FragmentContainerView
+    <ScrollView
+        android:id="@+id/sv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        app:layout_constraintTop_toBottomOf="@id/space_btw_suggestion_tv_on"
+        android:background="@color/main_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        tools:layout="@layout/home_tv_on_block" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/body_ads"
+
+                android:layout_width="match_parent"
+                android:layout_height="228dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+                app:layout_constraintTop_toTopOf="parent"
+
+                app:spanCount="1"
+                tools:ignore="SpeakableTextPresentCheck"
+                tools:listitem="@layout/home_ads_block_element" />
+
+            <Space
+                android:id="@+id/space_btw_ads_menu"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+
+                app:layout_constraintTop_toBottomOf="@id/body_ads" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/body_menu"
+
+                android:layout_width="match_parent"
+                android:layout_height="228dp"
+
+                android:layout_marginHorizontal="10dp"
+                android:orientation="vertical"
+                android:paddingHorizontal="40dp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+
+                app:layout_constraintTop_toBottomOf="@id/space_btw_ads_menu"
+                app:spanCount="5"
+
+                tools:listitem="@layout/home_menu_block_element"
+
+                />
+
+            <Space
+                android:id="@+id/space_btw_menu_suggestion"
+
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+
+                app:layout_constraintTop_toBottomOf="@id/body_menu" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/block_suggestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:background="@color/white"
+
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tx_suggest_items"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="271dp"
+                    android:lineHeight="18sp"
+                    android:paddingTop="30dp"
+
+                    android:paddingBottom="30dp"
+                    android:text="맞춤 상품 추천"
+
+                    android:textFontWeight="600"
+                    android:textSize="18sp"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <ImageView
+                    android:id="@+id/img_suggest_items_right_view_more"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+
+                    android:layout_marginStart="241dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="23dp"
+
+                    android:src="@drawable/body_right_view_more"
+
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    app:layout_constraintStart_toEndOf="@id/tx_suggest_items"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/suggestion_item_block"
+
+                android:layout_width="match_parent"
+                android:layout_height="228dp"
+                android:orientation="horizontal"
+
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+                app:layout_constraintTop_toBottomOf="@id/block_suggestion"
+
+                tools:listitem="@layout/suggestion_block_element" />
+
+            <Space
+                android:id="@+id/space_btw_suggestion_tv_on"
+
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+
+                app:layout_constraintTop_toBottomOf="@id/suggestion_item_block" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/block_tvon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:background="@color/white"
+
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tx_tv_on"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="271dp"
+                    android:lineHeight="18sp"
+                    android:paddingTop="30dp"
+                    android:paddingBottom="30dp"
+                    android:text="TVON LIVE"
+
+                    android:textFontWeight="600"
+                    android:textSize="18sp"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <ImageView
+                    android:id="@+id/img_tv_on_right_view_more"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+
+                    android:layout_marginStart="241dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="23dp"
+                    android:src="@drawable/body_right_view_more"
+
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    app:layout_constraintStart_toEndOf="@id/tx_tv_on"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/tvon_item_block"
+                android:layout_width="match_parent"
+                android:layout_height="122dp"
+
+                android:orientation="horizontal"
+
+                app:layout_constraintTop_toBottomOf="@id/block_tvon" />
+        </LinearLayout>
+
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

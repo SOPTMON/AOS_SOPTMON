@@ -15,27 +15,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <ScrollView
-        android:id="@+id/sv"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fcv_home"
+        android:name="com.sopt.soptmon.daehwan.HomeFragment"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
 
-        android:background="@color/main_background"
-
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@id/bt_nav_bar"
-        app:layout_constraintTop_toBottomOf="@id/top_nav_bar">
 
-
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fcv_home"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-
-            android:name="com.sopt.soptmon.daehwan.HomeFragment"
-            tools:layout="@layout/home_frame"
-            />
-
-    </ScrollView>
+        app:layout_constraintTop_toBottomOf="@id/top_nav_bar"
+        tools:layout="@layout/home_frame" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bt_nav_bar"
