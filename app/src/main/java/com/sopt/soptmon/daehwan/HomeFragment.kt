@@ -139,9 +139,11 @@ class HomeFragment : FragmentTemplate<HomeFrameBinding>() {
                 homeBodyTvOnBlockAdaptor.setList(dataList.filter {
                     !it.name.uppercase().contains("LIVE")
                 })
+
                 homeBodyTvOnStaticBlockAdaptor.setList(dataList.filter {
                     it.name.uppercase().contains("LIVE")
                 })
+
                 getBinding().tvonItemBlock.adapter = homeBodyTvOnBlockAdaptor
                 getBinding().tvonStatic.adapter = homeBodyTvOnStaticBlockAdaptor
             }
