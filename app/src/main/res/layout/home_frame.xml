@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
 
     <ScrollView
         android:id="@+id/sv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@color/main_background"
 
         android:overScrollMode="never"
@@ -26,7 +26,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/body_ads"
                 android:layout_width="wrap_content"
-                android:layout_height="228dp"
+                android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:orientation="horizontal"
                 android:overScrollMode="never"
@@ -49,12 +49,13 @@
                 android:id="@+id/body_menu"
                 android:layout_width="match_parent"
 
-                android:layout_height="180dp"
+                android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:orientation="vertical"
 
                 android:overScrollMode="never"
                 android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
 
                 app:layout_constraintTop_toBottomOf="@id/space_btw_ads_menu"
@@ -105,7 +106,7 @@
                 <ImageView
                     android:id="@+id/img_suggest_items_right_view_more"
                     android:layout_width="0dp"
-                    android:layout_height="30dp"
+                    android:layout_height="wrap_content"
 
                     android:layout_marginStart="241dp"
                     android:layout_marginTop="30dp"
@@ -127,7 +128,7 @@
                 android:id="@+id/suggestion_item_block"
 
                 android:layout_width="match_parent"
-                android:layout_height="228dp"
+                android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:orientation="horizontal"
 
@@ -176,7 +177,7 @@
                 <ImageView
                     android:id="@+id/img_tv_on_right_view_more"
                     android:layout_width="0dp"
-                    android:layout_height="30dp"
+                    android:layout_height="wrap_content"
 
                     android:layout_marginStart="241dp"
                     android:layout_marginTop="30dp"
@@ -206,15 +207,15 @@
                 >
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:overScrollMode="never">
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/tvon_static"
                         android:layout_width="wrap_content"
-                        android:layout_height="122dp"
+                        android:layout_height="wrap_content"
                         android:background="@color/white"
 
                         android:overScrollMode="never"
@@ -226,7 +227,7 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/tvon_item_block"
                         android:layout_width="wrap_content"
-                        android:layout_height="122dp"
+                        android:layout_height="wrap_content"
                         android:background="@color/white"
                         android:orientation="horizontal"
 

@@ -3,6 +3,7 @@ package com.sopt.soptmon.daehwan
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
+import com.sopt.soptmon.R
 import com.sopt.soptmon.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
@@ -13,13 +14,23 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fcv_home, HomeFragment())
+            .commit()
+
+        binding.btNavBar.setOnItemSelectedListener {
+            BottomMenu.from("HOME").changeFragment(supportFragmentManager)
+
+            true
+        }
     }
 
     enum class BottomMenu() {
         HOME {
             override fun changeFragment(supportFragmentManager: FragmentManager) {
                 supportFragmentManager.beginTransaction()
-                    //.replace(R.id.fcv_home, HomeFragment())
+                    .replace(R.id.fcv_home, HomeFragment())
                     .commit()
             }
         },
