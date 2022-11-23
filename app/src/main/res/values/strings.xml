@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">SoptMon</string>
+    <string name="app_name">soptmon_prototype</string>
+    <string name="discount_rate">%d%할인</string>
+    <string name="item_price">원</string>
 </resources>
