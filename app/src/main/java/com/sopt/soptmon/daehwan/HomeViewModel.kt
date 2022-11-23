@@ -40,3 +40,34 @@ class HomeViewModel(
             )
     }
 }
+
+class HomeTvOnViewModel(
+    private val _result: MutableLiveData<TvOnResponse> = MutableLiveData<TvOnResponse>(),
+    private val homeTvOnApi: HomeApi = ApiPool.HomeApi
+) : ViewModel() {
+    val result: LiveData<TvOnResponse>
+        get() = _result
+
+    fun getTvOns() {
+        homeTvOnApi.getTvOns()
+            .enqueue(
+                object : ResponseCallBack<TvOnResponse>() {
+                    override fun onResponse(
+                        call: Call<TvOnResponse>,
+                        response: Response<TvOnResponse>
+                    ) {
+                        if (response.isSuccessful) {
+                            _result.value = response.body()
+                        } else {
+                            _result.value = TvOnResponse(
+                                response.code(),
+                                response.isSuccessful,
+                                response.message(),
+                                null
+                            )
+                        }
+                    }
+                }
+            )
+    }
+}

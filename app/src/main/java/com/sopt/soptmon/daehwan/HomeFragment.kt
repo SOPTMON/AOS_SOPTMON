@@ -13,6 +13,8 @@ import com.sopt.soptmon.template.FragmentTemplate
 class HomeFragment : FragmentTemplate<HomeFrameBinding>() {
 
     private val homeSuggestionViewModel by viewModels<HomeViewModel>()
+    private val homeTvOnViewModel by viewModels<HomeTvOnViewModel>()
+
 
     private val adsList = listOf(
         AdsElement(
@@ -101,8 +103,10 @@ class HomeFragment : FragmentTemplate<HomeFrameBinding>() {
 
         // Ads block
         val homeBodyAdsBlockAdapter = HomeBodyAdsBlockAdapter(requireContext())
+        val homeAdsDecorator = HomeAdsDecorator(0)
         homeBodyAdsBlockAdapter.setList(adsList)
         getBinding().bodyAds.adapter = homeBodyAdsBlockAdapter
+        getBinding().bodyAds.addItemDecoration(homeAdsDecorator)
 
         // Menu Block
         val homeBodyMenuBlockAdapter = HomeBodyMenuBlockAdapter(requireContext())
@@ -116,7 +120,7 @@ class HomeFragment : FragmentTemplate<HomeFrameBinding>() {
         homeSuggestionViewModel.result.observe(viewLifecycleOwner) {
             if (it.isSuccessful()) {
                 homeSuggestionBlockAdapter.setList(
-                    SuggestionElementNameOnly.from(
+                    SuggestionElement.from(
                         it.data
                     )
                 )
@@ -124,10 +128,23 @@ class HomeFragment : FragmentTemplate<HomeFrameBinding>() {
             }
         }
 
+        // tvon block
+        val homeBodyTvOnBlockAdaptor = HomeBodyTvOnBlockAdaptor(requireContext())
+        val homeBodyTvOnStaticBlockAdaptor = HomeBodyTvOnStaticBlockAdaptor(requireContext())
+        homeTvOnViewModel.getTvOns()
 
+        homeTvOnViewModel.result.observe(viewLifecycleOwner) {
+            if (it.isSuccessful()) {
 
+                val dataList = TvOnElement.from(it.data)
 
-        
+                homeBodyTvOnBlockAdaptor.setList(dataList.filter { !it.name.uppercase().contains("LIVE") })
+                homeBodyTvOnStaticBlockAdaptor.setList(dataList.filter { it.name.uppercase().contains("LIVE") })
+                getBinding().tvonItemBlock.adapter = homeBodyTvOnBlockAdaptor
+                getBinding().tvonStatic.adapter = homeBodyTvOnStaticBlockAdaptor
+            }
+        }
+
     }
 
     override fun getBinding(): HomeFrameBinding = requireNotNull(_binding) as HomeFrameBinding

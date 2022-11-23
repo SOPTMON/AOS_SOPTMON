@@ -10,7 +10,7 @@ import com.sopt.soptmon.databinding.SuggestionBlockElementBinding
 class HomeBodySuggestionBlockAdaptor(
     context: Context
 ) : RecyclerView.Adapter<HomeBodySuggestionBlockAdaptor.ViewHolder>() {
-    private var suggestionList = emptyList<SuggestionElementNameOnly>()
+    private var suggestionList = emptyList<SuggestionElement>()
 
     private val inflater by lazy {
         LayoutInflater.from(context)
@@ -19,7 +19,7 @@ class HomeBodySuggestionBlockAdaptor(
     class ViewHolder(
         private val binding: SuggestionBlockElementBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: SuggestionElementNameOnly) {
+        fun onBind(data: SuggestionElement) {
             binding.imgSuggestion.clipToOutline = true
 
             Glide.with(binding.root)
@@ -50,7 +50,7 @@ class HomeBodySuggestionBlockAdaptor(
 
     override fun getItemCount() = suggestionList.size
 
-    fun setList(list: List<SuggestionElementNameOnly>) {
+    fun setList(list: List<SuggestionElement>) {
         suggestionList = list.toList()
 
         if (suggestionList.changed(list)) {
@@ -66,7 +66,7 @@ class HomeBodySuggestionBlockAdaptor(
     }
 }
 
-data class SuggestionElementNameOnly(
+data class SuggestionElement(
     val id: Int,
     val name: String,
     val discountRate: Int,
@@ -74,15 +74,16 @@ data class SuggestionElementNameOnly(
     val imageUrl: String
 ) {
     companion object {
-        fun from(dataList: List<SuggestionDetail>?): List<SuggestionElementNameOnly> {
+        fun from(dataList: List<SuggestionDetail>?): List<SuggestionElement> {
             return dataList?.map {
-                SuggestionElementNameOnly(
+                SuggestionElement(
                     id = it.id,
                     name = it.name,
                     discountRate = it.discountRate,
                     price = it.price,
                     imageUrl = it.imageUrl
                 )
+
             } ?: emptyList()
         }
     }

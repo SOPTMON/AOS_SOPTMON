@@ -10,8 +10,9 @@
         android:id="@+id/sv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:background="@color/main_background"
+
+        android:overScrollMode="never"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -24,16 +25,16 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/body_ads"
-
                 android:layout_width="match_parent"
                 android:layout_height="228dp"
+                android:background="@color/white"
                 android:orientation="horizontal"
+                android:overScrollMode="never"
+
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
 
                 app:layout_constraintTop_toTopOf="parent"
-
                 app:spanCount="1"
-                tools:ignore="SpeakableTextPresentCheck"
                 tools:listitem="@layout/home_ads_block_element" />
 
             <Space
@@ -45,13 +46,14 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/body_menu"
-
                 android:layout_width="match_parent"
-                android:layout_height="228dp"
 
-                android:layout_marginHorizontal="10dp"
+                android:layout_height="228dp"
+                android:background="@color/white"
                 android:orientation="vertical"
-                android:paddingHorizontal="40dp"
+
+                android:overScrollMode="never"
+                android:paddingHorizontal="20dp"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
 
                 app:layout_constraintTop_toBottomOf="@id/space_btw_ads_menu"
@@ -125,14 +127,14 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="228dp"
+                android:background="@color/white"
                 android:orientation="horizontal"
 
+                android:overScrollMode="never"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-
                 app:layout_constraintTop_toBottomOf="@id/block_suggestion"
 
-                tools:listitem="@layout/suggestion_block_element"
-                />
+                tools:listitem="@layout/suggestion_block_element" />
 
             <Space
                 android:id="@+id/space_btw_suggestion_tv_on"
@@ -143,7 +145,7 @@
                 app:layout_constraintTop_toBottomOf="@id/suggestion_item_block" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/block_tvon"
+                android:id="@+id/block_tvon_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
@@ -191,16 +193,53 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/tvon_item_block"
+            <HorizontalScrollView
+                android:id="@+id/block_tvon_items"
                 android:layout_width="match_parent"
-                android:layout_height="122dp"
+                android:layout_height="wrap_content"
 
-                android:orientation="horizontal"
+                android:background="@color/white"
+                android:overScrollMode="never">
 
-                app:layout_constraintTop_toBottomOf="@id/block_tvon"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:overScrollMode="never">
 
-                tools:listitem="@layout/"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/tvon_static"
+                        android:layout_width="wrap_content"
+                        android:layout_height="122dp"
+                        android:background="@color/white"
+
+                        android:overScrollMode="never"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/tvon_live_on_block_element"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/tvon_item_block"
+                        android:layout_width="wrap_content"
+                        android:layout_height="122dp"
+                        android:background="@color/white"
+                        android:orientation="horizontal"
+
+                        android:overScrollMode="never"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+                        tools:listitem="@layout/tvon_block_element"
+
+                        app:layout_constraintStart_toEndOf="@id/tvon_static"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </HorizontalScrollView>
+
+
         </LinearLayout>
 
     </ScrollView>
