@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="main_background">#F5F4F3</color>
     <color name="body_discount_color">#ED7B30</color>
+    <color name="tmonMain">#ED7B30</color>
 </resources>
