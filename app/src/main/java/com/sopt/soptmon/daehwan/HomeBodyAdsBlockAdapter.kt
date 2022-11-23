@@ -70,3 +70,9 @@ class HomeAdsDecorator(val width : Int) : RecyclerView.ItemDecoration() {
         outRect.right = width
     }
 }
+
+class HomeAdsState() : RecyclerView.State() {
+    override fun getRemainingScrollHorizontal(): Int {
+        return 2
+    }
+}

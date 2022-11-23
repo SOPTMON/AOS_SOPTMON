@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
@@ -25,7 +25,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/body_ads"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="228dp"
                 android:background="@color/white"
                 android:orientation="horizontal"
@@ -34,6 +34,7 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
 
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:spanCount="1"
                 tools:listitem="@layout/home_ads_block_element" />
 
@@ -48,7 +49,7 @@
                 android:id="@+id/body_menu"
                 android:layout_width="match_parent"
 
-                android:layout_height="228dp"
+                android:layout_height="180dp"
                 android:background="@color/white"
                 android:orientation="vertical"
 
@@ -79,7 +80,7 @@
 
                 android:background="@color/white"
 
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="@id/space_btw_menu_suggestion">
 
                 <TextView
                     android:id="@+id/tx_suggest_items"
@@ -151,7 +152,7 @@
 
                 android:background="@color/white"
 
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="@id/space_btw_suggestion_tv_on">
 
                 <TextView
                     android:id="@+id/tx_tv_on"
@@ -199,7 +200,10 @@
                 android:layout_height="wrap_content"
 
                 android:background="@color/white"
-                android:overScrollMode="never">
+                android:overScrollMode="never"
+
+                app:layout_constraintTop_toBottomOf="@id/block_tvon_text"
+                >
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -240,7 +244,7 @@
             </HorizontalScrollView>
 
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
 

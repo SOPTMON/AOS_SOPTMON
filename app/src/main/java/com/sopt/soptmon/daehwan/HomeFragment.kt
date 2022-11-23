@@ -103,10 +103,8 @@ class HomeFragment : FragmentTemplate<HomeFrameBinding>() {
 
         // Ads block
         val homeBodyAdsBlockAdapter = HomeBodyAdsBlockAdapter(requireContext())
-        val homeAdsDecorator = HomeAdsDecorator(0)
         homeBodyAdsBlockAdapter.setList(adsList)
         getBinding().bodyAds.adapter = homeBodyAdsBlockAdapter
-        getBinding().bodyAds.addItemDecoration(homeAdsDecorator)
 
         // Menu Block
         val homeBodyMenuBlockAdapter = HomeBodyMenuBlockAdapter(requireContext())
@@ -138,13 +136,16 @@ class HomeFragment : FragmentTemplate<HomeFrameBinding>() {
 
                 val dataList = TvOnElement.from(it.data)
 
-                homeBodyTvOnBlockAdaptor.setList(dataList.filter { !it.name.uppercase().contains("LIVE") })
-                homeBodyTvOnStaticBlockAdaptor.setList(dataList.filter { it.name.uppercase().contains("LIVE") })
+                homeBodyTvOnBlockAdaptor.setList(dataList.filter {
+                    !it.name.uppercase().contains("LIVE")
+                })
+                homeBodyTvOnStaticBlockAdaptor.setList(dataList.filter {
+                    it.name.uppercase().contains("LIVE")
+                })
                 getBinding().tvonItemBlock.adapter = homeBodyTvOnBlockAdaptor
                 getBinding().tvonStatic.adapter = homeBodyTvOnStaticBlockAdaptor
             }
         }
-
     }
 
     override fun getBinding(): HomeFrameBinding = requireNotNull(_binding) as HomeFrameBinding
