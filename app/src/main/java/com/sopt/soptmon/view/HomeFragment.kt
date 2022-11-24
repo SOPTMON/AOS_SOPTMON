@@ -1,4 +1,4 @@
-package com.sopt.soptmon.daehwan
+package com.sopt.soptmon.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.sopt.soptmon.ImageType
 import com.sopt.soptmon.R
+import com.sopt.soptmon.daehwan.HomeTvOnViewModel
+import com.sopt.soptmon.daehwan.HomeViewModel
 import com.sopt.soptmon.databinding.HomeFrameBinding
+import com.sopt.soptmon.service.*
 import com.sopt.soptmon.template.FragmentTemplate
 
 class HomeFragment : FragmentTemplate<HomeFrameBinding>() {

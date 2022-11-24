@@ -1,10 +1,11 @@
-package com.sopt.soptmon.daehwan
+package com.sopt.soptmon.service
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.sopt.soptmon.daehwan.TvOnDetail
 import com.sopt.soptmon.databinding.TvonBlockElementBinding
 
 class HomeBodyTvOnBlockAdaptor(

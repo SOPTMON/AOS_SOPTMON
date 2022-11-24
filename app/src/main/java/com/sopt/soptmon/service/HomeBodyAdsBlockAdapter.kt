@@ -1,4 +1,4 @@
-package com.sopt.soptmon.daehwan
+package com.sopt.soptmon.service
 
 import android.content.Context
 import android.graphics.Rect

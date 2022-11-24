@@ -1,4 +1,4 @@
-package com.sopt.soptmon.daehwan
+package com.sopt.soptmon.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
