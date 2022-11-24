@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="categorydata"
+            type="com.sopt.soptmon.daeun.data.CategoryData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_cateogry_img"
+            imageResource="@{categorydata.image}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9.5dp"
+            android:src="@drawable/cloth"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_category_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="@{categorydata.name}"
+            android:textColor="#171717"
+            app:layout_constraintBottom_toTopOf="@+id/sub_category"
+            app:layout_constraintStart_toEndOf="@+id/iv_cateogry_img"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="목록" />
+
+        <ImageButton
+            android:id="@+id/btn_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="22dp"
+            android:padding="0dp"
+            android:src="@drawable/arrow_gray"
+            app:layout_constraintBottom_toTopOf="@+id/sub_category"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#8B8B8B"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/sub_category"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="#F5F4F3"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_cateogry_img">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="68.31dp"
+                android:layout_marginBottom="76dp"
+                android:paddingVertical="8dp"
+                android:text="전체"
+                android:textColor="#171717"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="44dp"
+                android:layout_marginStart="199.38dp"
+                android:paddingVertical="8dp"
+                android:text="건강식품/다이어트"
+                android:textColor="#171717"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="44dp"
+                android:layout_marginStart="68.31dp"
+                android:layout_marginEnd="90.46dp"
+                android:paddingVertical="8dp"
+                android:text="가공식품"
+                android:textColor="#171717"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="199.38dp"
+                android:layout_marginBottom="76dp"
+                android:paddingVertical="8dp"
+                android:text="신선식품"
+                android:textColor="#171717"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="68.31dp"
+                android:layout_marginTop="78dp"
+                android:layout_marginBottom="10dp"
+                android:paddingVertical="8dp"
+                android:text="커피음료"
+                android:textColor="#171717"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

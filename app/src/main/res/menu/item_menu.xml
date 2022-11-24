@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_home"
+        android:title="홈화면"
+        android:icon="@drawable/ic_home_white" />
+    <item android:id="@+id/nav_category"
+        android:title="카테고리"
+        android:icon="@drawable/ic_category_white" />
+    <item android:id="@+id/nav_favorite"
+        android:title="찜하기"
+        android:icon="@drawable/ic_favorite_white" />
+    <item android:id="@+id/nav_my"
+        android:title="마이티몬"
+        android:icon="@drawable/ic_my_white" />
+</menu>
