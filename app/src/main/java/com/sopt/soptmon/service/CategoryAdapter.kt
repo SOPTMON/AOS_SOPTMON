@@ -1,11 +1,10 @@
-package com.sopt.soptmon.daeun
+package com.sopt.soptmon.service
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.sopt.soptmon.daeun.data.CategoryData
 import com.sopt.soptmon.databinding.ItemCategoryExhibitionsBinding
 import com.sopt.soptmon.databinding.ItemCategoryListBinding
 import com.sopt.soptmon.databinding.ItemCategoryTitleBinding

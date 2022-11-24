@@ -1,4 +1,4 @@
-package com.sopt.soptmon.daeun
+package com.sopt.soptmon.service
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -20,10 +20,10 @@ class ViewPagerAdatper : RecyclerView.Adapter<ViewPagerAdatper.ViewHolder>() {
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewPagerAdatper.ViewHolder =
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(ItemExhibitposterBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 
-    override fun onBindViewHolder(holder: ViewPagerAdatper.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(items[position])
     }
 
