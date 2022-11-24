@@ -6,7 +6,7 @@
     <data>
         <variable
             name="categorydata"
-            type="com.sopt.soptmon.daeun.data.CategoryData" />
+            type="com.sopt.soptmon.service.CategoryData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

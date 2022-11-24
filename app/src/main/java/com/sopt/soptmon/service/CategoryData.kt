@@ -1,4 +1,4 @@
-package com.sopt.soptmon.daeun.data
+package com.sopt.soptmon.service
 
 import androidx.annotation.DrawableRes
 

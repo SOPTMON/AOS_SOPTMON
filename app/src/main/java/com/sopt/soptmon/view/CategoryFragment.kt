@@ -1,4 +1,4 @@
-package com.sopt.soptmon.daeun
+package com.sopt.soptmon.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,8 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.sopt.soptmon.R
-import com.sopt.soptmon.daeun.data.CategoryData
+import com.sopt.soptmon.service.CategoryData
 import com.sopt.soptmon.databinding.FragmentCategoryBinding
+import com.sopt.soptmon.service.CategoryAdapter
 
 class CategoryFragment : Fragment() {
     private var _binding: FragmentCategoryBinding? = null
