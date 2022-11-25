@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingRight="9dp"
+    android:paddingBottom="23dp">
+
+    <TextView
+        android:id="@+id/tv_best_item_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="01"
+        android:textColor="@color/tmonMain"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/img_bestItem"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_bestItem"
+        android:layout_width="155dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/ic_macaroon"
+        android:scaleType="centerCrop"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_best_item_number" />
+
+    <TextView
+        android:id="@+id/tv_bestItemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="산지 직송 안동 햇사과 5kg"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        app:layout_constraintStart_toStartOf="@id/img_bestItem"
+        app:layout_constraintTop_toBottomOf="@+id/img_bestItem" />
+
+    <TextView
+        android:id="@+id/txt_bestItemPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="24,900원"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/tv_bestItemName"
+        app:layout_constraintTop_toBottomOf="@+id/tv_bestItemName" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

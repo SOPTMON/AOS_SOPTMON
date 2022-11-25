@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingRight="9dp">
+
+    <ImageView
+        android:id="@+id/img_customItem"
+        android:layout_width="134dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_macaroon" />
+
+    <TextView
+        android:id="@+id/txt_customItemName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="[스낵워크] 롯데제과 \n 마카롱 / "
+        android:textSize="12dp"
+        app:layout_constraintStart_toStartOf="@id/img_customItem"
+        app:layout_constraintTop_toBottomOf="@+id/img_customItem" />
+
+    <TextView
+        android:id="@+id/txt_customItemPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="19,900원~"
+        android:textSize="14dp"
+        app:layout_constraintStart_toStartOf="@+id/txt_customItemName"
+        app:layout_constraintTop_toBottomOf="@+id/txt_customItemName" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
