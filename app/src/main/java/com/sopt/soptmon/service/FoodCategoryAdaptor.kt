@@ -1,4 +1,4 @@
-package com.dabo.soptmon_prototype.adaptor
+package com.sopt.soptmon.service
 
 import android.content.Context
 import android.graphics.Color
@@ -8,10 +8,8 @@ import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.dabo.soptmon_prototype.FoodCategoryViewModel
-import com.dabo.soptmon_prototype.data.FoodCategory
-import com.dabo.soptmon_prototype.databinding.ItemFoodCategoryBinding
-import com.dabo.soptmon_prototype.remote.ResponseCustomItemDto
+import com.sopt.soptmon.api.food.FoodCategory
+import com.sopt.soptmon.databinding.ItemFoodCategoryBinding
 
 class FoodCategoryAdaptor(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val inflater by lazy { LayoutInflater.from(context) }
@@ -21,7 +19,7 @@ class FoodCategoryAdaptor(context: Context) : RecyclerView.Adapter<RecyclerView.
         RecyclerView.ViewHolder(binding.root) {
         fun setFoodCategoryItem(list: FoodCategory) {
             binding.tvFoodCategoryName.text = list.title
-            if(binding.tvFoodCategoryName.text == "전체"){
+            if (binding.tvFoodCategoryName.text == "전체") {
                 changeTextColorToTmon(list)
             }
         }
@@ -43,19 +41,19 @@ class FoodCategoryAdaptor(context: Context) : RecyclerView.Adapter<RecyclerView.
     }
 
 
-override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-    val binding = ItemFoodCategoryBinding.inflate(inflater, parent, false)
-    return FoodCategoryViewHolder(binding)
-}
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val binding = ItemFoodCategoryBinding.inflate(inflater, parent, false)
+        return FoodCategoryViewHolder(binding)
+    }
 
-override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-    if (holder is FoodCategoryViewHolder) holder.setFoodCategoryItem(foodCategoryList[position])
-}
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if (holder is FoodCategoryViewHolder) holder.setFoodCategoryItem(foodCategoryList[position])
+    }
 
-override fun getItemCount() = foodCategoryList.size
+    override fun getItemCount() = foodCategoryList.size
 
-fun setFoodCategoryList(foodCategoryList: List<FoodCategory>) {
-    this.foodCategoryList = foodCategoryList.toList()
-    notifyDataSetChanged()
-}
+    fun setFoodCategoryList(foodCategoryList: List<FoodCategory>) {
+        this.foodCategoryList = foodCategoryList.toList()
+        notifyDataSetChanged()
+    }
 }

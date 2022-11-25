@@ -1,7 +1,6 @@
-package com.dabo.soptmon_prototype
+package com.sopt.soptmon.api.food
 
 import androidx.lifecycle.ViewModel
-import com.dabo.soptmon_prototype.remote.ResponseCustomItemDto
 
 class CustomItemViewModel : ViewModel() {
     val customItemList = mutableListOf<ResponseCustomItemDto.CustomItem>()
