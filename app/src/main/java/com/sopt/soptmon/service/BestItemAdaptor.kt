@@ -1,4 +1,4 @@
-package com.dabo.soptmon_prototype.adaptor
+package com.sopt.soptmon.service
 
 import android.content.Context
 import android.graphics.Color
@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dabo.soptmon_prototype.databinding.LayoutBestItemListBinding
-import com.dabo.soptmon_prototype.remote.ResponseBestItemDto
+import com.sopt.soptmon.api.food.ResponseBestItemDto
 
 class BestItemAdaptor(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val inflater by lazy { LayoutInflater.from(context) }

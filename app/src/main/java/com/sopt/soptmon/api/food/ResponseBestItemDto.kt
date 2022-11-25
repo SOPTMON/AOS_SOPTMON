@@ -1,4 +1,4 @@
-package com.dabo.soptmon_prototype.remote
+package com.sopt.soptmon.api.food
 
 import kotlinx.serialization.Serializable
 

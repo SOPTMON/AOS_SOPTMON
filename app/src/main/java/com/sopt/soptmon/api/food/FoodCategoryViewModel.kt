@@ -1,7 +1,6 @@
-package com.dabo.soptmon_prototype
+package com.sopt.soptmon.api.food
 
 import androidx.lifecycle.ViewModel
-import com.dabo.soptmon_prototype.data.FoodCategory
 
 class FoodCategoryViewModel : ViewModel(){
     val categoryList = listOf<FoodCategory>(

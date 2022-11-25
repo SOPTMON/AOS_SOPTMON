@@ -5,10 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import com.sopt.soptmon.R
-import com.sopt.soptmon.service.CategoryData
 import com.sopt.soptmon.databinding.FragmentCategoryBinding
 import com.sopt.soptmon.service.CategoryAdapter
+import com.sopt.soptmon.service.CategoryData
 
 class CategoryFragment : Fragment() {
     private var _binding: FragmentCategoryBinding? = null
@@ -103,9 +104,14 @@ class CategoryFragment : Fragment() {
         CategoryData(
             image = R.drawable.performance,
             name = "기획전",
-            colors = arrayListOf(R.drawable.category_img_ad2, R.drawable.category_img_ad1, R.drawable.category_img_ad3)
+            colors = arrayListOf(
+                R.drawable.category_img_ad2,
+                R.drawable.category_img_ad1,
+                R.drawable.category_img_ad3
+            )
         )
     )
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

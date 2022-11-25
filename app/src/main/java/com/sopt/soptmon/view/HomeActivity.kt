@@ -26,7 +26,6 @@ class HomeActivity : AppCompatActivity() {
 
         bottomNavigationView.setOnItemSelectedListener {
             BottomMenu.from(it.itemId).changeFragment(supportFragmentManager)
-
             true
         }
     }
@@ -43,6 +42,13 @@ class HomeActivity : AppCompatActivity() {
             override fun changeFragment(supportFragmentManager: FragmentManager) {
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.fcv_home, CategoryFragment())
+                    .commit()
+            }
+        },
+        FOOD {
+            override fun changeFragment(supportFragmentManager: FragmentManager) {
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.fcv_home, FoodFragment())
                     .commit()
             }
         },

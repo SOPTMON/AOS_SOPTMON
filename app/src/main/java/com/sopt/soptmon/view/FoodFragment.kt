@@ -1,4 +1,4 @@
-package com.dabo.soptmon_prototype
+package com.sopt.soptmon.view
 
 import android.os.Bundle
 import android.util.Log
@@ -7,16 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.dabo.soptmon_prototype.adaptor.BestItemAdaptor
-import com.dabo.soptmon_prototype.adaptor.CustomItemAdaptor
-import com.dabo.soptmon_prototype.adaptor.FoodCategoryAdaptor
-import com.dabo.soptmon_prototype.data.FoodCategory
-import com.dabo.soptmon_prototype.databinding.FragmentFoodBinding
-import com.dabo.soptmon_prototype.remote.BestItemServicePool
-import com.dabo.soptmon_prototype.remote.CustomItemServicePool
-import com.dabo.soptmon_prototype.remote.ResponseBestItemDto
-import com.dabo.soptmon_prototype.remote.ResponseCustomItemDto
 import com.google.android.material.snackbar.Snackbar
+import com.sopt.soptmon.api.food.*
+import com.sopt.soptmon.databinding.FragmentFoodBinding
+import com.sopt.soptmon.service.BestItemAdaptor
+import com.sopt.soptmon.service.CustomItemAdaptor
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -90,18 +85,17 @@ class FoodFragment : Fragment() {
         }
         )
 
-        bestItemService.getBestItem().enqueue(object : Callback<ResponseBestItemDto>{
+        bestItemService.getBestItem().enqueue(object : Callback<ResponseBestItemDto> {
             override fun onResponse(
                 call: Call<ResponseBestItemDto>,
                 response: Response<ResponseBestItemDto>
             ) {
-                if(response.isSuccessful){
+                if (response.isSuccessful) {
                     bestItemViewModel.bestItemList.addAll(response.body()?.data!!)
                     val adapter = BestItemAdaptor(requireContext())
                     binding.rvBestItem.adapter = adapter
                     adapter.setBestItemList(bestItemViewModel.bestItemList)
-                }
-                else if (response.code() == 404) {
+                } else if (response.code() == 404) {
                     Snackbar.make(binding.root, "404 error", Snackbar.LENGTH_LONG)
                         .show()
                 } else if (response.code() == 401) {

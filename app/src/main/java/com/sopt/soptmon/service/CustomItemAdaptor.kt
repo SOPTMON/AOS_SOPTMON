@@ -1,4 +1,4 @@
-package com.dabo.soptmon_prototype.adaptor
+package com.sopt.soptmon.service
 
 import android.content.Context
 import android.graphics.Color
@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dabo.soptmon_prototype.databinding.LayoutCustomitemListBinding
-import com.dabo.soptmon_prototype.remote.ResponseCustomItemDto
+import com.sopt.soptmon.api.food.ResponseCustomItemDto
 
 class CustomItemAdaptor(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val inflater by lazy { LayoutInflater.from(context) }
